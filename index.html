@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intel: Sustainability Through the Ages</title>
+  <meta name="description" content="Explore Intel’s sustainability journey across key milestones, in a responsive, interactive timeline." />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Poppins:wght@800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,133 +15,248 @@
   <!-- Header / Hero Section -->
   <header>
     <div>
-      <!-- Ask Copilot to teach you about `.svg`. 🙂 You'll need to resize the logo with CSS. -->
-      <img src="img/intel-header-logo.svg" alt="Intel Logo" />
-      <!-- Main Heading -->
-      <h1>
-        Sustainability Through the Ages
-      </h1>
+      <!-- Intel logo on a white pill (no color filter) -->
+      <img class="intel-mark" src="img/intel-header-logo.svg" alt="Intel" />
+
+      <!-- Main Heading (solid deep blue; no clipping) -->
+      <h1><span class="h1-accent"></span>Sustainability Through the Ages</h1>
 
       <!-- Subheading / Description -->
-      <p>
+      <p class="hero-sub">
         Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology 
+        to innovation has shaped a more sustainable future for technology
         and our planet.
       </p>
     </div>
   </header>
 
   <!-- Timeline Cards Section -->
-  <section>
+  <section aria-label="Intel Sustainability Timeline">
 
     <!-- Card 1: 1968 -->
-    <div>
-      <h2>1968</h2>
+    <div tabindex="0" data-year="1968">
+      <h2 class="badge">1968</h2>
       <h3>Intel Founded</h3>
-      <!-- Add image -->
+      <img src="img/1.jpg" alt="Historic photo of Intel workers during the early days"
+           loading="lazy" decoding="async" />
       <p>
-        Robert Noyce and Gordon Moore rename the newly formed company 
-        NM Electronics to Intel Corporation, laying the foundation for 
+        Robert Noyce and Gordon Moore rename the newly formed company
+        NM Electronics to Intel Corporation, laying the foundation for
         decades of technological innovation.
       </p>
     </div>
 
     <!-- Card 2: 1971 -->
-    <div>
-      <h2>1971</h2>
+    <div tabindex="0" data-year="1971">
+      <h2 class="badge">1971</h2>
       <h3>First Microprocessor</h3>
-      <!-- Add image -->
+      <img src="img/2.jpg" alt="Close-up of a computer chip"
+           loading="lazy" decoding="async" />
       <p>
-        Intel debuts the 4004, the world's first commercial microprocessor, 
-        igniting the microprocessor revolution and propelling the future 
+        Intel debuts the 4004, the world's first commercial microprocessor,
+        igniting the microprocessor revolution and propelling the future
         of computing devices.
       </p>
     </div>
 
     <!-- Card 3: 1978 -->
-    <div>
-      <h2>1978</h2>
+    <div tabindex="0" data-year="1978">
+      <h2 class="badge">1978</h2>
       <h3>8086 Processor</h3>
-      <!-- Add image -->
+      <img src="img/3.jpg" alt="Intel-branded processor on a board"
+           loading="lazy" decoding="async" />
       <p>
-        Launch of the 8086 processor, establishing the x86 architecture 
+        Launch of the 8086 processor, establishing the x86 architecture
         that drives countless PCs and servers in the modern era.
       </p>
     </div>
 
     <!-- Card 4: 1985 -->
-    <div>
-      <h2>1985</h2>
+    <div tabindex="0" data-year="1985">
+      <h2 class="badge">1985</h2>
       <h3>386 Processor</h3>
-      <!-- Add image -->
+      <img src="img/4.jpg" alt="Intel 386-era microchip up close"
+           loading="lazy" decoding="async" />
       <p>
-        Intel introduces the 386 processor with 32-bit architecture, 
-        ushering in a new era of performance and multitasking for 
+        Intel introduces the 386 processor with 32-bit architecture,
+        ushering in a new era of performance and multitasking for
         personal computers.
       </p>
     </div>
 
     <!-- Card 5: 2006 -->
-    <div>
-      <h2>2006</h2>
+    <div tabindex="0" data-year="2006">
+      <h2 class="badge">2006</h2>
       <h3>Peak GHG Emissions</h3>
-      <!-- Add image -->
+      <img src="img/2.jpg" alt="Factory technology and emissions abatement concept"
+           loading="lazy" decoding="async" />
       <p>
-        This year marks Intel's highest annual greenhouse gas emissions 
-        for operations. Over subsequent years, Intel invests heavily in 
-        chemical abatement, renewable energy, and energy-efficient 
+        This year marks Intel's highest annual greenhouse gas emissions
+        for operations. Over subsequent years, Intel invests heavily in
+        chemical abatement, renewable energy, and energy-efficient
         manufacturing to reverse this trend.
       </p>
     </div>
 
     <!-- Card 6: 2020 -->
-    <div>
-      <h2>2020</h2>
+    <div tabindex="0" data-year="2020">
+      <h2 class="badge">2020</h2>
       <h3>RISE Strategy</h3>
-      <!-- Add image -->
+      <img src="img/1.jpg" alt="Team collaborating on sustainability goals"
+           loading="lazy" decoding="async" />
       <p>
-        Intel launches its RISE (Responsible, Inclusive, Sustainable, 
-        Enabling) strategy and 2030 goals, aiming to drive industry-wide 
+        Intel launches its RISE (Responsible, Inclusive, Sustainable,
+        Enabling) strategy and 2030 goals, aiming to drive industry-wide
         progress on climate action, water stewardship, and waste reduction.
       </p>
     </div>
 
     <!-- Card 7: 2022 -->
-    <div>
-      <h2>2022</h2>
+    <div tabindex="0" data-year="2022">
+      <h2 class="badge">2022</h2>
       <h3>Net-Zero By 2040</h3>
-      <!-- Add image -->
+      <img src="img/3.jpg" alt="Intel chip symbolizing efficient operations"
+           loading="lazy" decoding="async" />
       <p>
-        Intel announces its commitment to achieve net-zero greenhouse 
-        gas emissions (Scope 1 and 2) across its global operations 
+        Intel announces its commitment to achieve net-zero greenhouse
+        gas emissions (Scope 1 and 2) across its global operations
         by 2040, building on years of environmental initiatives.
       </p>
     </div>
 
     <!-- Card 8: 2023 -->
-    <div>
-      <h2>2023</h2>
+    <div tabindex="0" data-year="2023">
+      <h2 class="badge">2023</h2>
       <h3>Renewable Electricity</h3>
-      <!-- Add image -->
+      <img src="img/4.jpg" alt="Intel-branded chip representing clean energy transition"
+           loading="lazy" decoding="async" />
       <p>
-        The company achieves 99% renewable electricity usage worldwide, 
-        helping to drastically lower carbon emissions and driving progress 
+        The company achieves 99% renewable electricity usage worldwide,
+        helping to drastically lower carbon emissions and driving progress
         toward Intel's long-term sustainability goals.
       </p>
     </div>
 
     <!-- Card 9: 2024 -->
-    <div>
-      <h2>2024</h2>
+    <div tabindex="0" data-year="2024">
+      <h2 class="badge">2024</h2>
       <h3>Sustainability Summit</h3>
-      <!-- Add image -->
+      <img src="img/2.jpg" alt="Conference scene symbolizing collaboration on sustainability"
+           loading="lazy" decoding="async" />
       <p>
-        Intel hosts its first Sustainability Summit, uniting suppliers, 
-        government officials, and industry leaders to collaborate on 
+        Intel hosts its first Sustainability Summit, uniting suppliers,
+        government officials, and industry leaders to collaborate on
         next-generation sustainable semiconductor manufacturing.
       </p>
     </div>
   </section>
-  <p>Scroll to view timeline | Hover over cards to learn more!</p>
+
+  <p>Scroll to view timeline | Hover over cards to learn more! Click a card to play a quick True/False.</p>
+
+  <!-- Trivia JS -->
+  <script>
+    // Trivia that isn't just the text above
+    const QUIZ = {
+      1968: [
+        { q: "True or False: Intel’s founders also helped invent the integrated circuit.", a: true },
+        { q: "True or False: The name “Intel” comes from “Integrated Electronics.”", a: true },
+        { q: "True or False: Intel began as a memory company.", a: true },
+      ],
+      1971: [
+        { q: "True or False: The 4004 was first built for a calculator company.", a: true },
+        { q: "True or False: The 4004 used a modern 7nm process.", a: false },
+        { q: "True or False: The 4004 launched with 4-bit architecture.", a: true },
+      ],
+      1978: [
+        { q: "True or False: The 8086 started a lineage that still powers many PCs today.", a: true },
+        { q: "True or False: x86 is an instruction-set architecture family.", a: true },
+        { q: "True or False: The 8086 introduced Itanium.", a: false },
+      ],
+      1985: [
+        { q: "True or False: The 80386 enabled protected mode and better multitasking.", a: true },
+        { q: "True or False: The 80386 was 32-bit.", a: true },
+        { q: "True or False: The 80386 was designed as a GPU.", a: false },
+      ],
+      2006: [
+        { q: "True or False: Abatement systems cut process greenhouse gases in fabs.", a: true },
+        { q: "True or False: Renewable electricity reduces Scope 2 emissions.", a: true },
+        { q: "True or False: Efficiency projects can lower energy per wafer.", a: true },
+      ],
+      2020: [
+        { q: "True or False: RISE includes goals beyond the environment, like inclusion.", a: true },
+        { q: "True or False: Water stewardship is part of Intel’s 2030 goals.", a: true },
+        { q: "True or False: RISE stands for Responsible, Inclusive, Sustainable, Enabling.", a: true },
+      ],
+      2022: [
+        { q: "True or False: Net-zero by 2040 targets Scope 1 & 2 operations.", a: true },
+        { q: "True or False: Scope 3 covers value-chain emissions.", a: true },
+        { q: "True or False: Net-zero means fabs use no electricity.", a: false },
+      ],
+      2023: [
+        { q: "True or False: Renewable energy certificates can decarbonize Scope 2.", a: true },
+        { q: "True or False: 99% renewable electricity means zero emissions in all regions.", a: false },
+        { q: "True or False: Grid access to renewables varies by region.", a: true },
+      ],
+      2024: [
+        { q: "True or False: Supplier collaboration is key to reducing value-chain emissions.", a: true },
+        { q: "True or False: Industry summits are only for marketing.", a: false },
+        { q: "True or False: Sharing best practices accelerates sustainable manufacturing.", a: true },
+      ],
+    };
+
+    const rand = arr => arr[Math.floor(Math.random() * arr.length)];
+
+    function ensureQuizUI(card){
+      let quiz = card.querySelector('.quiz');
+      if (quiz) return quiz;
+
+      quiz = document.createElement('div');
+      quiz.className = 'quiz';
+      quiz.innerHTML = `
+        <div class="quiz-q"></div>
+        <div class="quiz-actions">
+          <button data-ans="true">True</button>
+          <button data-ans="false">False</button>
+        </div>
+        <div class="quiz-feedback" aria-live="polite"></div>
+      `;
+      card.appendChild(quiz);
+      return quiz;
+    }
+
+    // Click or Enter/Space to ask a random question
+    document.querySelectorAll('section > div[data-year]').forEach(card => {
+      function ask(){
+        const bank = QUIZ[card.getAttribute('data-year')];
+        if (!bank?.length) return;
+        const item = rand(bank);
+        const quiz = ensureQuizUI(card);
+        quiz.dataset.correct = String(item.a);
+        quiz.querySelector('.quiz-q').textContent = item.q;
+        quiz.querySelector('.quiz-feedback').textContent = '';
+        quiz.classList.add('show');
+      }
+      card.addEventListener('click', ask);
+      card.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ask(); }});
+    });
+
+    // Answer handling
+    document.addEventListener('click', (e) => {
+      const btn = e.target.closest('.quiz button');
+      if (!btn) return;
+      const quiz = btn.closest('.quiz');
+      const user = btn.dataset.ans === 'true';
+      const correct = quiz.dataset.correct === 'true';
+      const feedback = quiz.querySelector('.quiz-feedback');
+
+      if (user === correct){
+        feedback.textContent = '✅ Correct! Nice.';
+        feedback.className = 'quiz-feedback right';
+      } else {
+        feedback.textContent = '❌ Not quite—try another card!';
+        feedback.className = 'quiz-feedback wrong';
+      }
+    });
+  </script>
 </body>
 </html>

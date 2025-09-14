@@ -1,1 +1,261 @@
-/* Add your CSS here */
+/* =========================
+   Intel Sustainability – CSS
+   ========================= */
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+:root{
+  --intel-blue: #0071c5;
+  --intel-deep: #003c71;
+  --intel-ink:  #0a2540;
+  --bg:         #f5f8ff;
+  --card-bg:    #ffffff;
+  --muted:      #51657a;
+  --ring:       rgba(0,113,197,0.25);
+  --shadow:     0 6px 24px rgba(0, 40, 90, 0.12);
+  --radius:     16px;
+  --glow:       0 0 0 6px rgba(0,113,197,0.08), 0 10px 36px rgba(0,40,90,.2);
+}
+
+html, body { height: 100%; }
+
+body{
+  margin: 0;
+  font-family: "DM Sans", system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, sans-serif;
+  color: var(--intel-ink);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(0,113,197,0.10), transparent 60%),
+    radial-gradient(900px 500px at 110% 0%, rgba(0,60,113,0.10), transparent 60%),
+    var(--bg);
+  line-height: 1.55;
+}
+
+/* ----- Header ----- */
+header{
+  background: linear-gradient(180deg, #ffffff, #f2f7ff);
+  border-bottom: 1px solid #e6eeff;
+}
+header > div{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(24px, 4vw, 56px) clamp(16px, 4vw, 32px);
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+}
+
+/* Intel logo: dark blue pill for contrast (keep original SVG colors) */
+.intel-mark{
+  height: clamp(36px, 5vw, 52px);
+  width: auto;
+  display: block;
+  background: linear-gradient(135deg, #003c71, #0058a3);
+  padding: 10px 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 40, 90, 0.25);
+}
+
+/* Hero heading: Poppins + Intel blue gradient + depth */
+h1 {
+  margin: 6px 0 0 0;
+  padding-bottom: 6px; /* extra breathing space for descenders */
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25; /* increase from 1.12 */
+  font-size: clamp(36px, 5vw, 62px);
+
+  /* Gradient text */
+  background: linear-gradient(90deg, #003c71, #0071c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+
+  /* Shadow for depth */
+  text-shadow: 0 3px 10px rgba(0, 60, 113, 0.25);
+
+  display: flex;
+  align-items: flex-end; /* prevents baseline cutoff */
+  gap: 12px;
+}
+
+
+  /* Gradient text */
+  background: linear-gradient(90deg, #003c71, #0071c5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Depth/shadow */
+  text-shadow: 0 3px 10px rgba(0, 60, 113, 0.25);
+
+  /* Align with accent bar if you use it in HTML */
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.h1-accent{
+  width: 8px;
+  height: 0.95em;
+  border-radius: 8px;
+  background: var(--intel-blue);
+  box-shadow: 0 8px 20px rgba(0,113,197,0.35);
+}
+
+.hero-sub{
+  margin: 4px 0 0 0;
+  color: var(--muted);
+  max-width: 70ch;
+  font-size: clamp(15px, 1.9vw, 19px);
+}
+
+/* ----- Timeline ----- */
+section{
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 clamp(16px, 4vw, 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+section > div{
+  background: var(--card-bg);
+  border: 1px solid #e7eefc;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  gap: 10px;
+  transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease, outline-color .2s;
+  outline: 0 solid transparent;
+  cursor: pointer;
+}
+
+/* Year badge: consistent before/after click */
+.badge{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  font-size: 12px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: #0b67b7;
+  background: #eaf4ff;
+  border: 1px solid #d7e8ff;
+  border-radius: 999px;
+  margin: 0;
+  width: auto;
+}
+
+section > div h3{
+  margin: -2px 0 4px 0;
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: var(--intel-deep);
+}
+
+/* Copy */
+section > div p{
+  margin: 0;
+  color: var(--intel-ink);
+  opacity: .92;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  transition: -webkit-line-clamp .3s ease, opacity .3s ease;
+}
+
+/* Images */
+section > div img{
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid #e7eefc;
+  box-shadow: 0 6px 16px rgba(0,30,70,0.08);
+  background: linear-gradient(135deg, #eef6ff, #ffffff);
+}
+
+/* Hover / focus glow */
+section > div:hover,
+section > div:focus-within{
+  transform: translateY(-8px) scale(1.015);
+  box-shadow: var(--glow);
+  outline: 3px solid var(--ring);
+}
+section > div:hover p,
+section > div:focus-within p{
+  -webkit-line-clamp: unset;
+  opacity: 1;
+}
+
+/* Quiz UI */
+.quiz{
+  margin-top: 8px;
+  padding: 12px;
+  background: #f6fbff;
+  border: 1px solid #dcecff;
+  border-radius: 12px;
+  display: none;
+  gap: 10px;
+}
+.quiz.show{ display: grid; }
+.quiz-q{ font-weight: 700; color: var(--intel-ink); }
+.quiz-actions{ display: flex; gap: 10px; }
+.quiz button{
+  appearance: none;
+  border: 1px solid #cfe6ff;
+  background: #ffffff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.quiz button:hover{ transform: translateY(-1px); box-shadow: 0 6px 14px rgba(0, 80, 180, .15); background: #f9fbff; }
+.quiz-feedback{ font-weight: 700; margin-top: 4px; }
+.quiz-feedback.right{ color: #1f8a36; }
+.quiz-feedback.wrong{ color: #c23232; }
+
+/* Desktop: horizontal scroller with scroll-snap */
+@media (min-width: 900px){
+  section{
+    flex-direction: row;
+    gap: 20px;
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 24px;
+    padding-bottom: 20px;
+    background:
+      linear-gradient(180deg, rgba(0,113,197,0.06), transparent 40%) top/100% 80px no-repeat;
+    border-top: 1px solid #e6eeff;
+    border-bottom: 1px solid #e6eeff;
+    border-radius: 12px;
+  }
+  section > div{
+    min-width: clamp(320px, 32vw, 420px);
+    scroll-snap-align: start;
+  }
+  section::after{
+    content: "";
+    position: sticky;
+    right: 0;
+    align-self: stretch;
+    width: 36px;
+    background: linear-gradient(90deg, transparent, #ffffff 40%);
+    pointer-events: none;
+  }
+}
+
+/* Footer note */
+section + p{
+  max-width: 1100px;
+  margin: 6px auto 40px;
+  padding: 0 clamp(16px, 4vw, 32px);
+  color: var(--muted);
+  font-size: 14px;
+}
