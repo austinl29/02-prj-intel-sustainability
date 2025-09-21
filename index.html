@@ -1,262 +1,534 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Intel: Sustainability Through the Ages</title>
-  <meta name="description" content="Explore Intel’s sustainability journey across key milestones, in a responsive, interactive timeline." />
+  <meta name="description" content="Explore Intel’s sustainability journey across key milestones, with localization (RTL), accessibility, and a Bootstrap layout." />
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Poppins:wght@800;900&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap (LTR + RTL) + Icons -->
+  <link id="bs-ltr" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link id="bs-rtl" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" crossorigin="anonymous" disabled>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Skip link -->
+  <a class="visually-hidden-focusable position-absolute top-0 start-0 m-2 p-2 bg-white rounded shadow-sm" href="#timeline">Skip to timeline</a>
 
-  <!-- Header / Hero Section -->
-  <header>
-    <div>
-      <!-- Intel logo on a white pill (no color filter) -->
-      <img class="intel-mark" src="img/intel-header-logo.svg" alt="Intel" />
-
-      <!-- Main Heading (solid deep blue; no clipping) -->
-      <h1><span class="h1-accent"></span>Sustainability Through the Ages</h1>
-
-      <!-- Subheading / Description -->
-      <p class="hero-sub">
-        Explore Intel's journey through time, discovering how our commitment
-        to innovation has shaped a more sustainable future for technology
-        and our planet.
+  <!-- Header / Hero -->
+  <header role="banner">
+    <div class="container">
+      <img class="intel-mark" src="img/intel-header-logo.svg" alt="Intel logo" />
+      <h1 data-i18n="title"><span class="h1-accent" aria-hidden="true"></span>Sustainability Through the Ages</h1>
+      <p class="hero-sub mb-3" data-i18n="hero">
+        Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.
       </p>
+
+      <div class="d-flex flex-wrap gap-2">
+        <button id="toggle-rtl" class="btn btn-outline-primary btn-sm" type="button" aria-pressed="false" data-i18n="toggleRTL">Toggle RTL / LTR</button>
+        <button id="open-overview" class="btn btn-primary btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#learnMoreModal" data-i18n="whatsNew">What’s new this week</button>
+      </div>
+
+      <!-- Language selector -->
+      <div class="d-flex align-items-center gap-2 mt-3">
+        <label for="lang-select" class="form-label mb-0" data-i18n="languageLabel">Language:</label>
+        <select id="lang-select" class="form-select form-select-sm" style="max-width: 280px;">
+          <option value="en">English (LTR)</option>
+          <option value="ar">العربية — Arabic (RTL)</option>
+          <option value="fa">فارسی — Farsi (RTL)</option>
+          <option value="he">עברית — Hebrew (RTL)</option>
+          <option value="ur">اردو — Urdu (RTL)</option>
+        </select>
+      </div>
+
+      <!-- Language change confirmation -->
+      <div id="lang-alert" class="alert alert-info alert-dismissible fade mt-3" role="alert" style="max-width: 420px;">
+        <span data-i18n="langChanged">Language updated.</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
     </div>
   </header>
 
-  <!-- Timeline Cards Section -->
-  <section aria-label="Intel Sustainability Timeline">
+  <!-- MAIN content -->
+  <main id="main-content" role="main">
+    <!-- Timeline -->
+    <section id="timeline" aria-label="Intel Sustainability Timeline">
+      <div tabindex="0" data-year="1968">
+        <h2 class="badge">1968</h2>
+        <h3 data-i18n="card1968Title">Intel Founded</h3>
+        <img src="img/1.jpg" alt="Historic photo of Intel workers during the early days" loading="lazy" decoding="async" />
+        <p data-i18n="card1968Body">Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation.</p>
+      </div>
 
-    <!-- Card 1: 1968 -->
-    <div tabindex="0" data-year="1968">
-      <h2 class="badge">1968</h2>
-      <h3>Intel Founded</h3>
-      <img src="img/1.jpg" alt="Historic photo of Intel workers during the early days"
-           loading="lazy" decoding="async" />
-      <p>
-        Robert Noyce and Gordon Moore rename the newly formed company
-        NM Electronics to Intel Corporation, laying the foundation for
-        decades of technological innovation.
-      </p>
+      <div tabindex="0" data-year="1971">
+        <h2 class="badge">1971</h2>
+        <h3 data-i18n="card1971Title">First Microprocessor</h3>
+        <img src="img/2.jpg" alt="Close-up view of Intel 4004 microprocessor" loading="lazy" decoding="async" />
+        <p data-i18n="card1971Body">Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices.</p>
+      </div>
+
+      <div tabindex="0" data-year="1978">
+        <h2 class="badge">1978</h2>
+        <h3 data-i18n="card1978Title">8086 Processor</h3>
+        <img src="img/3.jpg" alt="Intel-branded x86 processor mounted on a board" loading="lazy" decoding="async" />
+        <p data-i18n="card1978Body">Launch of the 8086 processor, establishing the x86 architecture that drives countless PCs and servers in the modern era.</p>
+      </div>
+
+      <div tabindex="0" data-year="1985">
+        <h2 class="badge">1985</h2>
+        <h3 data-i18n="card1985Title">386 Processor</h3>
+        <img src="img/4.jpg" alt="Macro shot of Intel 80386 microchip" loading="lazy" decoding="async" />
+        <p data-i18n="card1985Body">Intel introduces the 386 processor with 32-bit architecture, ushering in a new era of performance and multitasking for personal computers.</p>
+      </div>
+
+      <div tabindex="0" data-year="2006">
+        <h2 class="badge">2006</h2>
+        <h3 data-i18n="card2006Title">Peak GHG Emissions</h3>
+        <img src="img/2.jpg" alt="Manufacturing facility symbolizing abatement and emissions control" loading="lazy" decoding="async" />
+        <p data-i18n="card2006Body">This year marks Intel's highest annual greenhouse gas emissions for operations. Over subsequent years, Intel invests in chemical abatement, renewable energy, and efficient manufacturing to reverse this trend.</p>
+      </div>
+
+      <div tabindex="0" data-year="2020">
+        <h2 class="badge">2020</h2>
+        <h3 data-i18n="card2020Title">RISE Strategy</h3>
+        <img src="img/1.jpg" alt="Team collaborating on Intel RISE goals" loading="lazy" decoding="async" />
+        <p data-i18n="card2020Body">Intel launches its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and 2030 goals, aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction.</p>
+      </div>
+
+      <div tabindex="0" data-year="2022">
+        <h2 class="badge">2022</h2>
+        <h3 data-i18n="card2022Title">Net-Zero By 2040</h3>
+        <img src="img/3.jpg" alt="Intel chip representing efficient operations and lower emissions" loading="lazy" decoding="async" />
+        <p data-i18n="card2022Body">Intel commits to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across global operations by 2040, building on years of environmental initiatives.</p>
+      </div>
+
+      <div tabindex="0" data-year="2023">
+        <h2 class="badge">2023</h2>
+        <h3 data-i18n="card2023Title">Renewable Electricity</h3>
+        <img src="img/4.jpg" alt="Semiconductor illustration symbolizing clean energy transition" loading="lazy" decoding="async" />
+        <p data-i18n="card2023Body">The company achieves 99% renewable electricity usage worldwide, helping to drastically lower carbon emissions and drive progress toward long-term sustainability goals.</p>
+      </div>
+
+      <div tabindex="0" data-year="2024">
+        <h2 class="badge">2024</h2>
+        <h3 data-i18n="card2024Title">Sustainability Summit</h3>
+        <img src="img/2.jpg" alt="Conference scene symbolizing collaboration on sustainability" loading="lazy" decoding="async" />
+        <p data-i18n="card2024Body">Intel hosts its first Sustainability Summit, uniting suppliers, government officials, and industry leaders to collaborate on next-generation sustainable semiconductor manufacturing.</p>
+      </div>
+    </section>
+
+    <p class="text-center" data-i18n="timelineNote">Scroll to view timeline • Hover over cards to learn more • Click a card to play a quick True/False.</p>
+
+    <!-- Three-Column Section (Bootstrap) -->
+    <section aria-label="Sustainability pillars" class="py-4">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title d-flex align-items-center gap-2">
+                  <i class="bi bi-droplet-half" aria-hidden="true"></i>
+                  <span data-i18n="pillarWaterTitle">Water Stewardship</span>
+                </h3>
+                <p class="card-text" data-i18n="pillarWaterBody">Cutting freshwater use and returning more to local basins through reuse, reclamation, and restoration projects.</p>
+                <a href="#" class="stretched-link link-primary fw-semibold" data-bs-toggle="modal" data-bs-target="#learnMoreModal" data-topic="Water Stewardship" data-i18n="learnMore">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title d-flex align-items-center gap-2">
+                  <i class="bi bi-recycle" aria-hidden="true"></i>
+                  <span data-i18n="pillarWasteTitle">Waste & Circularity</span>
+                </h3>
+                <p class="card-text" data-i18n="pillarWasteBody">Driving toward zero waste to landfill, responsible chemical management, and circular material flows in fabs.</p>
+                <a href="#" class="stretched-link link-primary fw-semibold" data-bs-toggle="modal" data-bs-target="#learnMoreModal" data-topic="Waste & Circularity" data-i18n="learnMore">Learn more</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h3 class="card-title d-flex align-items-center gap-2">
+                  <i class="bi bi-lightning-charge" aria-hidden="true"></i>
+                  <span data-i18n="pillarEnergyTitle">Clean Energy</span>
+                </h3>
+                <p class="card-text" data-i18n="pillarEnergyBody">Expanding renewable electricity, efficiency projects, and abatement to decarbonize operations globally.</p>
+                <a href="#" class="stretched-link link-primary fw-semibold" data-bs-toggle="modal" data-bs-target="#learnMoreModal" data-topic="Clean Energy" data-i18n="learnMore">Learn more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="row g-4 mt-2">
+          <div class="col-12 col-lg-8">
+            <form class="p-3 p-md-4 rounded-3 border bg-white needs-validation" id="subscribe-form" novalidate>
+              <h3 class="mb-3"><i class="bi bi-envelope-paper" aria-hidden="true"></i> <span data-i18n="newsletterTitle">Subscribe to the Sustainability Newsletter</span></h3>
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
+                  <label for="name" class="form-label" data-i18n="labelName">Full name</label>
+                  <input id="name" name="name" type="text" class="form-control" autocomplete="name" required aria-describedby="nameHelp">
+                  <div id="nameHelp" class="form-text" data-i18n="nameHelp">Your name helps us personalize updates.</div>
+                  <div class="invalid-feedback" data-i18n="nameInvalid">Please enter your name.</div>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <label for="email" class="form-label" data-i18n="labelEmail">Email</label>
+                  <input id="email" name="email" type="email" class="form-control" autocomplete="email" required>
+                  <div class="invalid-feedback" data-i18n="emailInvalid">Please provide a valid email address.</div>
+                </div>
+                <div class="col-12">
+                  <label for="pref" class="form-label" data-i18n="labelTopics">Topics of interest</label>
+                  <select id="pref" name="pref" class="form-select" aria-label="Topic preference">
+                    <option data-i18n="topicEnergy">Clean energy</option>
+                    <option data-i18n="topicWater">Water & restoration</option>
+                    <option data-i18n="topicWaste">Waste & circularity</option>
+                    <option data-i18n="topicSuppliers">Supplier engagement</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="consent" required>
+                    <label class="form-check-label" for="consent" data-i18n="consentLabel">I agree to receive periodic emails. (You can unsubscribe anytime.)</label>
+                    <div class="invalid-feedback" data-i18n="consentInvalid">Consent is required to subscribe.</div>
+                  </div>
+                </div>
+                <div class="col-12 d-flex gap-2">
+                  <button class="btn btn-primary" type="submit" data-i18n="subscribeBtn">Subscribe</button>
+                  <p class="mb-0 align-self-center" id="subscribe-feedback" role="status" aria-live="polite"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="mt-4 py-4 border-top bg-white" role="contentinfo">
+    <div class="container d-flex flex-column flex-md-row align-items-start justify-content-between gap-3">
+      <p class="mb-0 text-muted">© <span id="year"></span> <span data-i18n="footerBrand">Intel Sustainability (Student Project)</span></p>
+      <ul class="nav gap-3" aria-label="Footer links">
+        <li class="nav-item"><a class="nav-link p-0 text-muted" href="#" aria-current="page" data-i18n="footerPrivacy">Privacy</a></li>
+        <li class="nav-item"><a class="nav-link p-0 text-muted" href="#" data-i18n="footerTerms">Terms</a></li>
+        <li class="nav-item"><a class="nav-link p-0 text-muted" href="#" data-i18n="footerContact">Contact</a></li>
+      </ul>
     </div>
+  </footer>
 
-    <!-- Card 2: 1971 -->
-    <div tabindex="0" data-year="1971">
-      <h2 class="badge">1971</h2>
-      <h3>First Microprocessor</h3>
-      <img src="img/2.jpg" alt="Close-up of a computer chip"
-           loading="lazy" decoding="async" />
-      <p>
-        Intel debuts the 4004, the world's first commercial microprocessor,
-        igniting the microprocessor revolution and propelling the future
-        of computing devices.
-      </p>
+  <!-- Modal -->
+  <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 id="learnMoreModalLabel" class="modal-title" data-i18n="modalTitle">Learn more</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" title="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p id="modal-body-copy" class="mb-0" data-i18n="modalBody">
+            Explore Intel’s initiatives in this area. This demo modal shows a Bootstrap component added for better UX.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <a class="btn btn-primary" href="#" role="button" data-i18n="modalCta">Open resource</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Card 3: 1978 -->
-    <div tabindex="0" data-year="1978">
-      <h2 class="badge">1978</h2>
-      <h3>8086 Processor</h3>
-      <img src="img/3.jpg" alt="Intel-branded processor on a board"
-           loading="lazy" decoding="async" />
-      <p>
-        Launch of the 8086 processor, establishing the x86 architecture
-        that drives countless PCs and servers in the modern era.
-      </p>
-    </div>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <!-- Card 4: 1985 -->
-    <div tabindex="0" data-year="1985">
-      <h2 class="badge">1985</h2>
-      <h3>386 Processor</h3>
-      <img src="img/4.jpg" alt="Intel 386-era microchip up close"
-           loading="lazy" decoding="async" />
-      <p>
-        Intel introduces the 386 processor with 32-bit architecture,
-        ushering in a new era of performance and multitasking for
-        personal computers.
-      </p>
-    </div>
-
-    <!-- Card 5: 2006 -->
-    <div tabindex="0" data-year="2006">
-      <h2 class="badge">2006</h2>
-      <h3>Peak GHG Emissions</h3>
-      <img src="img/2.jpg" alt="Factory technology and emissions abatement concept"
-           loading="lazy" decoding="async" />
-      <p>
-        This year marks Intel's highest annual greenhouse gas emissions
-        for operations. Over subsequent years, Intel invests heavily in
-        chemical abatement, renewable energy, and energy-efficient
-        manufacturing to reverse this trend.
-      </p>
-    </div>
-
-    <!-- Card 6: 2020 -->
-    <div tabindex="0" data-year="2020">
-      <h2 class="badge">2020</h2>
-      <h3>RISE Strategy</h3>
-      <img src="img/1.jpg" alt="Team collaborating on sustainability goals"
-           loading="lazy" decoding="async" />
-      <p>
-        Intel launches its RISE (Responsible, Inclusive, Sustainable,
-        Enabling) strategy and 2030 goals, aiming to drive industry-wide
-        progress on climate action, water stewardship, and waste reduction.
-      </p>
-    </div>
-
-    <!-- Card 7: 2022 -->
-    <div tabindex="0" data-year="2022">
-      <h2 class="badge">2022</h2>
-      <h3>Net-Zero By 2040</h3>
-      <img src="img/3.jpg" alt="Intel chip symbolizing efficient operations"
-           loading="lazy" decoding="async" />
-      <p>
-        Intel announces its commitment to achieve net-zero greenhouse
-        gas emissions (Scope 1 and 2) across its global operations
-        by 2040, building on years of environmental initiatives.
-      </p>
-    </div>
-
-    <!-- Card 8: 2023 -->
-    <div tabindex="0" data-year="2023">
-      <h2 class="badge">2023</h2>
-      <h3>Renewable Electricity</h3>
-      <img src="img/4.jpg" alt="Intel-branded chip representing clean energy transition"
-           loading="lazy" decoding="async" />
-      <p>
-        The company achieves 99% renewable electricity usage worldwide,
-        helping to drastically lower carbon emissions and driving progress
-        toward Intel's long-term sustainability goals.
-      </p>
-    </div>
-
-    <!-- Card 9: 2024 -->
-    <div tabindex="0" data-year="2024">
-      <h2 class="badge">2024</h2>
-      <h3>Sustainability Summit</h3>
-      <img src="img/2.jpg" alt="Conference scene symbolizing collaboration on sustainability"
-           loading="lazy" decoding="async" />
-      <p>
-        Intel hosts its first Sustainability Summit, uniting suppliers,
-        government officials, and industry leaders to collaborate on
-        next-generation sustainable semiconductor manufacturing.
-      </p>
-    </div>
-  </section>
-
-  <p>Scroll to view timeline | Hover over cards to learn more! Click a card to play a quick True/False.</p>
-
-  <!-- Trivia JS -->
+  <!-- App JS -->
   <script>
-    // Trivia that isn't just the text above
+    /* ===== QUIZ (unchanged content) ===== */
     const QUIZ = {
-      1968: [
-        { q: "True or False: Intel’s founders also helped invent the integrated circuit.", a: true },
-        { q: "True or False: The name “Intel” comes from “Integrated Electronics.”", a: true },
-        { q: "True or False: Intel began as a memory company.", a: true },
-      ],
-      1971: [
-        { q: "True or False: The 4004 was first built for a calculator company.", a: true },
-        { q: "True or False: The 4004 used a modern 7nm process.", a: false },
-        { q: "True or False: The 4004 launched with 4-bit architecture.", a: true },
-      ],
-      1978: [
-        { q: "True or False: The 8086 started a lineage that still powers many PCs today.", a: true },
-        { q: "True or False: x86 is an instruction-set architecture family.", a: true },
-        { q: "True or False: The 8086 introduced Itanium.", a: false },
-      ],
-      1985: [
-        { q: "True or False: The 80386 enabled protected mode and better multitasking.", a: true },
-        { q: "True or False: The 80386 was 32-bit.", a: true },
-        { q: "True or False: The 80386 was designed as a GPU.", a: false },
-      ],
-      2006: [
-        { q: "True or False: Abatement systems cut process greenhouse gases in fabs.", a: true },
-        { q: "True or False: Renewable electricity reduces Scope 2 emissions.", a: true },
-        { q: "True or False: Efficiency projects can lower energy per wafer.", a: true },
-      ],
-      2020: [
-        { q: "True or False: RISE includes goals beyond the environment, like inclusion.", a: true },
-        { q: "True or False: Water stewardship is part of Intel’s 2030 goals.", a: true },
-        { q: "True or False: RISE stands for Responsible, Inclusive, Sustainable, Enabling.", a: true },
-      ],
-      2022: [
-        { q: "True or False: Net-zero by 2040 targets Scope 1 & 2 operations.", a: true },
-        { q: "True or False: Scope 3 covers value-chain emissions.", a: true },
-        { q: "True or False: Net-zero means fabs use no electricity.", a: false },
-      ],
-      2023: [
-        { q: "True or False: Renewable energy certificates can decarbonize Scope 2.", a: true },
-        { q: "True or False: 99% renewable electricity means zero emissions in all regions.", a: false },
-        { q: "True or False: Grid access to renewables varies by region.", a: true },
-      ],
-      2024: [
-        { q: "True or False: Supplier collaboration is key to reducing value-chain emissions.", a: true },
-        { q: "True or False: Industry summits are only for marketing.", a: false },
-        { q: "True or False: Sharing best practices accelerates sustainable manufacturing.", a: true },
-      ],
+      1968:[{q:"True or False: Intel’s founders also helped invent the integrated circuit.",a:true},{q:"True or False: The name “Intel” comes from “Integrated Electronics.”",a:true},{q:"True or False: Intel began as a memory company.",a:true}],
+      1971:[{q:"True or False: The 4004 was first built for a calculator company.",a:true},{q:"True or False: The 4004 used a modern 7nm process.",a:false},{q:"True or False: The 4004 launched with 4-bit architecture.",a:true}],
+      1978:[{q:"True or False: The 8086 started a lineage that still powers many PCs today.",a:true},{q:"True or False: x86 is an instruction-set architecture family.",a:true},{q:"True or False: The 8086 introduced Itanium.",a:false}],
+      1985:[{q:"True or False: The 80386 enabled protected mode and better multitasking.",a:true},{q:"True or False: The 80386 was 32-bit.",a:true},{q:"True or False: The 80386 was designed as a GPU.",a:false}],
+      2006:[{q:"True or False: Abatement systems cut process greenhouse gases in fabs.",a:true},{q:"True or False: Renewable electricity reduces Scope 2 emissions.",a:true},{q:"True or False: Efficiency projects can lower energy per wafer.",a:true}],
+      2020:[{q:"True or False: RISE includes goals beyond the environment, like inclusion.",a:true},{q:"True or False: Water stewardship is part of Intel’s 2030 goals.",a:true},{q:"True or False: RISE stands for Responsible, Inclusive, Sustainable, Enabling.",a:true}],
+      2022:[{q:"True or False: Net-zero by 2040 targets Scope 1 & 2 operations.",a:true},{q:"True or False: Scope 3 covers value-chain emissions.",a:true},{q:"True or False: Net-zero means fabs use no electricity.",a:false}],
+      2023:[{q:"True or False: Renewable energy certificates can decarbonize Scope 2.",a:true},{q:"True or False: 99% renewable electricity means zero emissions in all regions.",a:false},{q:"True or False: Grid access to renewables varies by region.",a:true}],
+      2024:[{q:"True or False: Supplier collaboration is key to reducing value-chain emissions.",a:true},{q:"True or False: Industry summits are only for marketing.",a:false},{q:"True or False: Sharing best practices accelerates sustainable manufacturing.",a:true}],
     };
 
-    const rand = arr => arr[Math.floor(Math.random() * arr.length)];
-
+    const rand = arr => arr[Math.floor(Math.random()*arr.length)];
     function ensureQuizUI(card){
       let quiz = card.querySelector('.quiz');
       if (quiz) return quiz;
-
       quiz = document.createElement('div');
       quiz.className = 'quiz';
       quiz.innerHTML = `
         <div class="quiz-q"></div>
         <div class="quiz-actions">
-          <button data-ans="true">True</button>
-          <button data-ans="false">False</button>
+          <button data-ans="true" class="btn btn-outline-success btn-sm">True</button>
+          <button data-ans="false" class="btn btn-outline-danger btn-sm">False</button>
         </div>
-        <div class="quiz-feedback" aria-live="polite"></div>
-      `;
-      card.appendChild(quiz);
-      return quiz;
+        <div class="quiz-feedback" aria-live="polite"></div>`;
+      card.appendChild(quiz); return quiz;
     }
-
-    // Click or Enter/Space to ask a random question
-    document.querySelectorAll('section > div[data-year]').forEach(card => {
+    document.querySelectorAll('section > div[data-year]').forEach(card=>{
       function ask(){
-        const bank = QUIZ[card.getAttribute('data-year')];
-        if (!bank?.length) return;
-        const item = rand(bank);
-        const quiz = ensureQuizUI(card);
+        const bank = QUIZ[card.getAttribute('data-year')]; if (!bank?.length) return;
+        const item = rand(bank); const quiz = ensureQuizUI(card);
         quiz.dataset.correct = String(item.a);
         quiz.querySelector('.quiz-q').textContent = item.q;
         quiz.querySelector('.quiz-feedback').textContent = '';
         quiz.classList.add('show');
       }
       card.addEventListener('click', ask);
-      card.addEventListener('keydown', (e)=>{ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ask(); }});
+      card.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); ask(); }});
+    });
+    document.addEventListener('click', e=>{
+      const btn = e.target.closest('.quiz button'); if(!btn) return;
+      const quiz = btn.closest('.quiz'); const user = btn.dataset.ans==='true'; const correct = quiz.dataset.correct==='true';
+      const feedback = quiz.querySelector('.quiz-feedback');
+      if (user===correct){ feedback.textContent='✅ Correct! Nice.'; feedback.className='quiz-feedback right'; }
+      else { feedback.textContent='❌ Not quite—try another card!'; feedback.className='quiz-feedback wrong'; }
     });
 
-    // Answer handling
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('.quiz button');
-      if (!btn) return;
-      const quiz = btn.closest('.quiz');
-      const user = btn.dataset.ans === 'true';
-      const correct = quiz.dataset.correct === 'true';
-      const feedback = quiz.querySelector('.quiz-feedback');
+    /* ===== RTL / LTR handling ===== */
+    const RTL_LANGS = ['ar','fa','he','ur'];
+    const htmlEl = document.documentElement;
+    const bsLTR = document.getElementById('bs-ltr');
+    const bsRTL = document.getElementById('bs-rtl');
 
-      if (user === correct){
-        feedback.textContent = '✅ Correct! Nice.';
-        feedback.className = 'quiz-feedback right';
-      } else {
-        feedback.textContent = '❌ Not quite—try another card!';
-        feedback.className = 'quiz-feedback wrong';
+    function applyDirForLang(lang){
+      const base = (lang||'en').toLowerCase().slice(0,2);
+      const isRTL = RTL_LANGS.includes(base);
+      htmlEl.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+      if (bsLTR && bsRTL){ bsRTL.disabled = !isRTL; bsLTR.disabled = isRTL; }
+      // Persist choice
+      try { localStorage.setItem('lang', lang); } catch {}
+    }
+
+    // ===== i18n dictionaries (EN + AR + FA + HE + UR) =====
+    const I18N = {
+      en:{
+        title:"Sustainability Through the Ages",
+        hero:"Explore Intel's journey through time, discovering how our commitment to innovation has shaped a more sustainable future for technology and our planet.",
+        toggleRTL:"Toggle RTL / LTR", whatsNew:"What’s new this week",
+        languageLabel:"Language:", langChanged:"Language updated.",
+        learnMore:"Learn more",
+        timelineNote:"Scroll to view timeline • Hover over cards to learn more • Click a card to play a quick True/False.",
+        pillarWaterTitle:"Water Stewardship", pillarWaterBody:"Cutting freshwater use and returning more to local basins through reuse, reclamation, and restoration projects.",
+        pillarWasteTitle:"Waste & Circularity", pillarWasteBody:"Driving toward zero waste to landfill, responsible chemical management, and circular material flows in fabs.",
+        pillarEnergyTitle:"Clean Energy", pillarEnergyBody:"Expanding renewable electricity, efficiency projects, and abatement to decarbonize operations globally.",
+        newsletterTitle:"Subscribe to the Sustainability Newsletter",
+        labelName:"Full name", nameHelp:"Your name helps us personalize updates.", nameInvalid:"Please enter your name.",
+        labelEmail:"Email", emailInvalid:"Please provide a valid email address.",
+        labelTopics:"Topics of interest", topicEnergy:"Clean energy", topicWater:"Water & restoration", topicWaste:"Waste & circularity", topicSuppliers:"Supplier engagement",
+        consentLabel:"I agree to receive periodic emails. (You can unsubscribe anytime.)", consentInvalid:"Consent is required to subscribe.", subscribeBtn:"Subscribe",
+        footerBrand:"Intel Sustainability (Student Project)", footerPrivacy:"Privacy", footerTerms:"Terms", footerContact:"Contact",
+        modalTitle:"Learn more", modalBody:"Explore Intel’s initiatives in this area. This demo modal shows a Bootstrap component added for better UX.", modalCta:"Open resource",
+        subscribed:"Thanks for subscribing!",
+        card1968Title:"Intel Founded", card1968Body:"Robert Noyce and Gordon Moore rename the newly formed company NM Electronics to Intel Corporation, laying the foundation for decades of technological innovation.",
+        card1971Title:"First Microprocessor", card1971Body:"Intel debuts the 4004, the world's first commercial microprocessor, igniting the microprocessor revolution and propelling the future of computing devices.",
+        card1978Title:"8086 Processor", card1978Body:"Launch of the 8086 processor, establishing the x86 architecture that drives countless PCs and servers in the modern era.",
+        card1985Title:"386 Processor", card1985Body:"Intel introduces the 386 processor with 32-bit architecture, ushering in a new era of performance and multitasking for personal computers.",
+        card2006Title:"Peak GHG Emissions", card2006Body:"This year marks Intel's highest annual greenhouse gas emissions for operations. Over subsequent years, Intel invests in chemical abatement, renewable energy, and efficient manufacturing to reverse this trend.",
+        card2020Title:"RISE Strategy", card2020Body:"Intel launches its RISE (Responsible, Inclusive, Sustainable, Enabling) strategy and 2030 goals, aiming to drive industry-wide progress on climate action, water stewardship, and waste reduction.",
+        card2022Title:"Net-Zero By 2040", card2022Body:"Intel commits to achieve net-zero greenhouse gas emissions (Scope 1 and 2) across global operations by 2040, building on years of environmental initiatives.",
+        card2023Title:"Renewable Electricity", card2023Body:"The company achieves 99% renewable electricity usage worldwide, helping to drastically lower carbon emissions and drive progress toward long-term sustainability goals.",
+        card2024Title:"Sustainability Summit", card2024Body:"Intel hosts its first Sustainability Summit, uniting suppliers, government officials, and industry leaders to collaborate on next-generation sustainable semiconductor manufacturing."
+      },
+      ar:{
+        title:"الاستدامة عبر العصور",
+        hero:"اكتشف رحلة إنتل عبر الزمن وكيف أسهم التزامنا بالابتكار في تشكيل مستقبل أكثر استدامة للتقنية وكوكبنا.",
+        toggleRTL:"تبديل الاتجاه يمين/يسار", whatsNew:"ما الجديد هذا الأسبوع",
+        languageLabel:"اللغة:", langChanged:"تم تحديث اللغة.",
+        learnMore:"اعرف المزيد",
+        timelineNote:"قم بالتمرير لعرض الخط الزمني • مرّر فوق البطاقات لمعرفة المزيد • انقر بطاقة لأسئلة صح/خطأ سريعة.",
+        pillarWaterTitle:"إدارة المياه", pillarWaterBody:"تقليل استخدام المياه العذبة وإعادتها للأحواض المحلية عبر إعادة الاستخدام والاستصلاح والمشاريع الترميمية.",
+        pillarWasteTitle:"النفايات والاقتصاد الدائري", pillarWasteBody:"التقدم نحو صفر نفايات إلى المدافن وإدارة كيميائية مسؤولة وتدوير المواد في المصانع.",
+        pillarEnergyTitle:"الطاقة النظيفة", pillarEnergyBody:"توسيع الكهرباء المتجددة ومشاريع الكفاءة وأنظمة المعالجة لخفض الانبعاثات عالمياً.",
+        newsletterTitle:"اشترك في نشرة الاستدامة",
+        labelName:"الاسم الكامل", nameHelp:"يساعدنا اسمك على تخصيص التحديثات.", nameInvalid:"يرجى إدخال الاسم.",
+        labelEmail:"البريد الإلكتروني", emailInvalid:"يرجى إدخال بريد إلكتروني صالح.",
+        labelTopics:"المواضيع المفضلة", topicEnergy:"الطاقة النظيفة", topicWater:"المياه والاستعادة", topicWaste:"النفايات والاقتصاد الدائري", topicSuppliers:"التعاون مع المورّدين",
+        consentLabel:"أوافق على استلام رسائل بريد إلكتروني دورية. (يمكنك إلغاء الاشتراك في أي وقت.)", consentInvalid:"الموافقة مطلوبة للاشتراك.", subscribeBtn:"اشترك",
+        footerBrand:"استدامة إنتل (مشروع طلابي)", footerPrivacy:"الخصوصية", footerTerms:"الشروط", footerContact:"اتصل بنا",
+        modalTitle:"اعرف المزيد", modalBody:"استكشف مبادرات إنتل في هذا المجال. يعرض هذا المربع الحواري مكوّن Bootstrap يحسّن تجربة الاستخدام.", modalCta:"فتح المصدر",
+        subscribed:"شكرًا لاشتراكك!",
+        card1968Title:"تأسيس إنتل", card1968Body:"أعاد روبرت نويس وجوردون مور تسمية الشركة إلى «Intel» مما مهد لعقود من الابتكار.",
+        card1971Title:"أول معالج دقيق", card1971Body:"طرحت إنتل المعالج 4004، أول معالج دقيق تجاري في العالم.",
+        card1978Title:"معالج 8086", card1978Body:"إطلاق 8086 الذي أسس معمارية x86 المستخدمة في عدد لا يحصى من الحواسيب.",
+        card1985Title:"معالج 386", card1985Body:"قدمت إنتل 80386 بعمارة 32-بت، ما أتاح أداءً أفضل وتعدد مهام.",
+        card2006Title:"ذروة انبعاثات غازات الدفيئة", card2006Body:"عام بلغنا فيه أعلى الانبعاثات التشغيلية، تلاه استثمار في المعالجة والطاقة المتجددة والكفاءة.",
+        card2020Title:"استراتيجية RISE", card2020Body:"تطلق إنتل استراتيجية RISE وأهداف 2030 لدفع العمل المناخي وإدارة المياه وتقليل النفايات.",
+        card2022Title:"صافي صفر بحلول 2040", card2022Body:"التزام بالوصول إلى صافي صفر لانبعاثات النطاقين 1 و2 عبر العمليات العالمية بحلول 2040.",
+        card2023Title:"كهرباء متجددة", card2023Body:"تحقيق استخدام 99٪ من الكهرباء المتجددة عالمياً لدفع خفض الانبعاثات.",
+        card2024Title:"قمة الاستدامة", card2024Body:"تستضيف إنتل أول قمة للاستدامة لتسريع التصنيع المستدام بالتعاون مع الشركاء."
+      },
+      fa:{
+        title:"پایداری در گذر زمان",
+        hero:"سفر اینتل در گذر زمان را کشف کنید و ببینید چگونه تعهد ما به نوآوری آینده‌ای پایدارتر برای فناوری و سیاره‌مان رقم زده است.",
+        toggleRTL:"تغییر جهت راست‌به‌چپ/چپ‌به‌راست", whatsNew:"این هفته چه خبر",
+        languageLabel:"زبان:", langChanged:"زبان به‌روزرسانی شد.",
+        learnMore:"بیشتر بدانید",
+        timelineNote:"برای مشاهده خط زمان اسکرول کنید • برای اطلاعات بیشتر روی کارت‌ها حرکت دهید • برای یک آزمون درست/نادرست کلیک کنید.",
+        pillarWaterTitle:"مدیریت آب", pillarWaterBody:"کاهش مصرف آب شیرین و بازگرداندن آن به حوضه‌های محلی از طریق بازاستفاده و بازیابی.",
+        pillarWasteTitle:"پسماند و اقتصاد چرخشی", pillarWasteBody:"حرکت به‌سوی دفن صفر پسماند، مدیریت مسئولانه مواد شیمیایی و چرخه مواد در کارخانه‌ها.",
+        pillarEnergyTitle:"انرژی پاک", pillarEnergyBody:"گسترش برق تجدیدپذیر، پروژه‌های بهره‌وری و سامانه‌های کاهش انتشار در سطح جهانی.",
+        newsletterTitle:"اشتراک در خبرنامه پایداری",
+        labelName:"نام و نام خانوادگی", nameHelp:"نام شما برای شخصی‌سازی مفید است.", nameInvalid:"لطفاً نام خود را وارد کنید.",
+        labelEmail:"ایمیل", emailInvalid:"یک ایمیل معتبر وارد کنید.",
+        labelTopics:"موضوعات مورد علاقه", topicEnergy:"انرژی پاک", topicWater:"آب و احیا", topicWaste:"پسماند و چرخه‌پذیری", topicSuppliers:"همکاری با تأمین‌کنندگان",
+        consentLabel:"با دریافت ایمیل‌های دوره‌ای موافقم. (هر زمان می‌توانید لغو کنید.)", consentInvalid:"برای اشتراک، موافقت لازم است.", subscribeBtn:"اشتراک",
+        footerBrand:"پایداری اینتل (پروژه دانشجویی)", footerPrivacy:"حریم خصوصی", footerTerms:"شرایط", footerContact:"تماس",
+        modalTitle:"بیشتر بدانید", modalBody:"با ابتکارات اینتل در این حوزه آشنا شوید. این مودال Bootstrap تجربه کاربری را بهبود می‌دهد.", modalCta:"باز کردن منبع",
+        subscribed:"از اشتراک شما سپاسگزاریم!",
+        card1968Title:"تأسیس اینتل", card1968Body:"روبرت نویس و گوردون مور نام شرکت را به «اینتل» تغییر دادند و پایه‌های نوآوری‌های آینده را گذاشتند.",
+        card1971Title:"اولین ریزپردازنده", card1971Body:"اینتل 4004، نخستین ریزپردازنده تجاری جهان را عرضه کرد.",
+        card1978Title:"پردازنده 8086", card1978Body:"معرفی 8086 که معماری x86 را پایه‌گذاری کرد.",
+        card1985Title:"پردازنده 386", card1985Body:"اینتل 80386 با معماری ۳۲ بیتی عملکرد و چندوظیفگی را متحول کرد.",
+        card2006Title:"اوج انتشار گازهای گلخانه‌ای", card2006Body:"پس از این سال سرمایه‌گذاری در کاهش آلاینده‌ها و انرژی تجدیدپذیر شدت گرفت.",
+        card2020Title:"راهبرد RISE", card2020Body:"راهبرد RISE و اهداف 2030 برای اقدام اقلیمی، آب و کاهش پسماند.",
+        card2022Title:"کربن خنثی تا 2040", card2022Body:"تعهد به رسیدن به انتشار خالص صفر در دامنه‌های 1 و 2 تا 2040.",
+        card2023Title:"برق تجدیدپذیر", card2023Body:"دستیابی به 99٪ برق تجدیدپذیر در سراسر جهان.",
+        card2024Title:"همایش پایداری", card2024Body:"برگزاری نخستین همایش پایداری برای همکاری صنعت و تأمین‌کنندگان."
+      },
+      he:{
+        title:"קיימוּת לאורך הדורות",
+        hero:"גלו את מסע אינטל בזמן וכיצד המחויבות שלנו לחדשנות עיצבה עתיד בר-קיימא יותר לטכנולוגיה ולעולמנו.",
+        toggleRTL:"החלפת כיוון ימין/שמאל", whatsNew:"מה חדש השבוע",
+        languageLabel:"שפה:", langChanged:"השפה עודכנה.",
+        learnMore:"מידע נוסף",
+        timelineNote:"גללו לצפייה בציר הזמן • עברו עם העכבר על הכרטיסים • לחצו לשאלת נכון/לא נכון מהירה.",
+        pillarWaterTitle:"ניהול מים", pillarWaterBody:"הפחתת שימוש במים מתוקים והחזרתם לאגנים מקומיים באמצעות שימוש חוזר ושיקום.",
+        pillarWasteTitle:"פסולת וכלכלה מעגלית", pillarWasteBody:"חתירה לאפס פסולת להטמנה, ניהול אחראי של כימיקלים וזרימת חומרים מעגלית במפעלי הייצור.",
+        pillarEnergyTitle:"אנרגיה נקייה", pillarEnergyBody:"הרחבת חשמל מתחדש, פרויקטי יעילות ומערכות להפחתת פליטות ברחבי העולם.",
+        newsletterTitle:"הירשמו לניוזלטר הקיימות",
+        labelName:"שם מלא", nameHelp:"השם משמש להתאמה אישית.", nameInvalid:"נא להזין שם.",
+        labelEmail:"אימייל", emailInvalid:"נא להזין כתובת אימייל תקינה.",
+        labelTopics:"נושאים מעניינים", topicEnergy:"אנרגיה נקייה", topicWater:"מים ושיקום", topicWaste:"פסולת וכלכלה מעגלית", topicSuppliers:"שיתוף פעולה עם ספקים",
+        consentLabel:"אני מסכים לקבל מיילים תקופתיים. (ניתן לבטל בכל עת.)", consentInvalid:"נדרש אישור להרשמה.", subscribeBtn:"הרשמה",
+        footerBrand:"קיימות אינטל (פרויקט סטודנטיאלי)", footerPrivacy:"פרטיות", footerTerms:"תנאים", footerContact:"יצירת קשר",
+        modalTitle:"מידע נוסף", modalBody:"הכירו את יוזמות אינטל בתחום זה. חלונית Bootstrap זו משפרת את חוויית המשתמש.", modalCta:"פתיחת מקור",
+        subscribed:"תודה על ההרשמה!",
+        card1968Title:"הקמת אינטל", card1968Body:"רוברט נוייס וגורדון מור שינו את שם החברה ל-Intel והניחו את היסודות לעשורים של חדשנות.",
+        card1971Title:"המיקרו־מעבד הראשון", card1971Body:"אינטל משיקה את 4004 — המיקרו־מעבד המסחרי הראשון בעולם.",
+        card1978Title:"מעבד 8086", card1978Body:"השקת 8086 שהניח את תשתית ארכיטקטורת x86.",
+        card1985Title:"מעבד 386", card1985Body:"ה-80386 בעל 32 סיביות הביא לשיפור ביצועים וריבוי משימות.",
+        card2006Title:"שיא פליטות ג״ח״מ", card2006Body:"לאחר שנה זו הוגברו השקעות בהפחתת מזהמים, אנרגיה מתחדשת ויעילות.",
+        card2020Title:"אסטרטגיית RISE", card2020Body:"אינטל משיקה את RISE ויעדי 2030 לפעולה אקלימית, מים והפחתת פסולת.",
+        card2022Title:"אפס פליטות נטו עד 2040", card2022Body:"מחויבות להגיע לאפס נטו בטווחי 1 ו-2 עד 2040.",
+        card2023Title:"חשמל מתחדש", card2023Body:"השגת שימוש של 99% בחשמל מתחדש ברחבי העולם.",
+        card2024Title:"פסגת קיימות", card2024Body:"אינטל מקיימת פסגה ראשונה לקיימות לשיתוף פעולה עם ספקים ותעשייה."
+      },
+      ur:{
+        title:"زمان کے ساتھ پائیداری",
+        hero:"جانیے کہ وقت کے ساتھ انٹیل کا سفر اور ہماری جدّت کی وابستگی نے ٹیکنالوجی اور ہماری زمین کے لیے زیادہ پائیدار مستقبل کیسے تراشا۔",
+        toggleRTL:"RTL / LTR تبدیل کریں", whatsNew:"اس ہفتے کیا نیا ہے",
+        languageLabel:"زبان:", langChanged:"زبان تبدیل کر دی گئی ہے۔",
+        learnMore:"مزید جانیں",
+        timelineNote:"ٹائم لائن دیکھنے کے لیے اسکرول کریں • مزید معلومات کے لیے کارڈز پر ہور کریں • تیز درست/غلط سوال کے لیے کلک کریں۔",
+        pillarWaterTitle:"آبی نظم و نسق", pillarWaterBody:"میٹھے پانی کا استعمال کم کرنا اور مقامی علاقوں میں واپس لوٹانا۔",
+        pillarWasteTitle:"فضلہ اور سرکلر معیشت", pillarWasteBody:"لینڈفل میں صفر فضلہ، کیمیکلز کا ذمہ دارانہ انتظام، اور مواد کی سرکولیشن۔",
+        pillarEnergyTitle:"صاف توانائی", pillarEnergyBody:"تجدیدپذیر بجلی، کارکردگی کے منصوبے اور اخراج میں کمی کے نظام عالمی سطح پر بڑھانا۔",
+        newsletterTitle:"استحکام نیوز لیٹر کی رکنیت",
+        labelName:"پورا نام", nameHelp:"آپ کا نام اپ ڈیٹس کو ذاتی بناتا ہے۔", nameInvalid:"براہِ کرم نام درج کریں۔",
+        labelEmail:"ای میل", emailInvalid:"براہِ کرم درست ای میل درج کریں۔",
+        labelTopics:"پسندیدہ موضوعات", topicEnergy:"صاف توانائی", topicWater:"پانی اور بحالی", topicWaste:"فضلہ اور سرکلرٹی", topicSuppliers:"سپلائر شمولیت",
+        consentLabel:"میں وقفے وقفے سے ای میلز وصول کرنے پر راضی ہوں۔ (آپ کسی بھی وقت اَن سبسکرائب کر سکتے ہیں۔)", consentInvalid:"رکنیت کے لیے رضامندی ضروری ہے۔", subscribeBtn:"سبسکرائب",
+        footerBrand:"انٹیل سسٹین ایبلیٹی (طالب علم کا منصوبہ)", footerPrivacy:"پرائیویسی", footerTerms:"شرائط", footerContact:"رابطہ",
+        modalTitle:"مزید جانیں", modalBody:"اس شعبے میں انٹیل کی کاوشیں دیکھیں۔ یہ بوٹسٹرپ موڈل بہتر UX فراہم کرتا ہے۔", modalCta:"ذرائع کھولیں",
+        subscribed:"سبسکرائب کرنے کا شکریہ!",
+        card1968Title:"انٹیل کی بنیاد", card1968Body:"رابرٹ نویس اور گورڈن مور نے کمپنی کا نام 'انٹیل' رکھا، جس نے دہائیوں کی جدّت کی بنیاد رکھی۔",
+        card1971Title:"پہلا مائیکرو پروسیسر", card1971Body:"انٹیل نے 4004، دنیا کا پہلا کمرشل مائیکرو پروسیسر، متعارف کرایا۔",
+        card1978Title:"8086 پروسیسر", card1978Body:"8086 کی لانچ جس نے x86 آرکیٹیکچر کی بنیاد رکھی۔",
+        card1985Title:"386 پروسیسر", card1985Body:"32-بٹ 80386 نے کارکردگی اور ملٹی ٹاسکنگ میں بہتری لائی۔",
+        card2006Title:"گرین ہاؤس گیسوں کی چوٹی", card2006Body:"اس کے بعد آلودگی میں کمی اور تجدیدپذیر توانائی میں سرمایہ کاری بڑھی۔",
+        card2020Title:"RISE حکمت عملی", card2020Body:"موسمی عمل، پانی کے نظم و نسق اور فضلے میں کمی کے لیے RISE اور 2030 اہداف۔",
+        card2022Title:"2040 تک نیٹ زیرو", card2022Body:"گلوبل آپریشنز میں اسکوپ 1 اور 2 کے لیے نیٹ زیرو کا عزم۔",
+        card2023Title:"قابلِ تجدید بجلی", card2023Body:"دنیا بھر میں 99٪ قابلِ تجدید بجلی کے استعمال کا حصول۔",
+        card2024Title:"پائیداری سمٹ", card2024Body:"سپلائرز و صنعت کے ساتھ تعاون کے لیے پہلی پائیداری سمٹ۔"
+      }
+    };
+
+    function renderI18n(lang){
+      const chosen = I18N[lang] || I18N.en;
+      document.querySelectorAll('[data-i18n]').forEach(node=>{
+        const key = node.getAttribute('data-i18n');
+        if (chosen[key]) node.textContent = chosen[key];
+      });
+    }
+
+    /* ===== Init: load saved language, apply dir, render, sync selector ===== */
+    (function initLang(){
+      let lang = 'en';
+      try { lang = localStorage.getItem('lang') || htmlEl.getAttribute('lang') || 'en'; } catch {}
+      htmlEl.setAttribute('lang', lang);
+      applyDirForLang(lang);
+      renderI18n(lang);
+      const sel = document.getElementById('lang-select');
+      if (sel) sel.value = lang;
+    })();
+
+    /* Watch for lang changes from any source (selector, toggle, browser translate) */
+    const langObserver = new MutationObserver(muts=>{
+      for (const m of muts){
+        if (m.type === 'attributes' && m.attributeName === 'lang'){
+          const lang = htmlEl.getAttribute('lang');
+          applyDirForLang(lang);
+          renderI18n(lang);
+          const sel = document.getElementById('lang-select'); if (sel) sel.value = lang;
+          const alertEl = document.getElementById('lang-alert');
+          if (alertEl){ new bootstrap.Alert(alertEl); alertEl.classList.add('show'); }
+        }
       }
     });
+    langObserver.observe(htmlEl, { attributes:true });
+
+    /* Toggle + selector hookups */
+    document.getElementById('toggle-rtl')?.addEventListener('click', ()=>{
+      const now = htmlEl.getAttribute('dir') === 'rtl' ? 'ltr' : 'rtl';
+      htmlEl.setAttribute('dir', now);
+      htmlEl.setAttribute('lang', now === 'rtl' ? (I18N[localStorage.getItem('lang')] && RTL_LANGS.includes(localStorage.getItem('lang')) ? localStorage.getItem('lang') : 'ar') : 'en');
+      document.getElementById('toggle-rtl').setAttribute('aria-pressed', now === 'rtl' ? 'true' : 'false');
+    });
+    document.getElementById('lang-select')?.addEventListener('change', e=>{
+      htmlEl.setAttribute('lang', e.target.value);
+    });
+
+    /* Modal topic swap (uses current language strings) */
+    const modal = document.getElementById('learnMoreModal');
+    modal?.addEventListener('show.bs.modal', ev=>{
+      const trigger = ev.relatedTarget;
+      const topic = trigger?.getAttribute('data-topic') || (I18N[htmlEl.lang]?.modalTitle || 'Learn more');
+      document.getElementById('learnMoreModalLabel').textContent = `${I18N[htmlEl.lang]?.modalTitle || 'Learn more'}: ${topic}`;
+      document.getElementById('modal-body-copy').textContent = I18N[htmlEl.lang]?.modalBody || I18N.en.modalBody;
+    });
+
+    /* Newsletter validation + feedback text per language + year */
+    (()=>{
+      const form = document.getElementById('subscribe-form');
+      const out = document.getElementById('subscribe-feedback');
+      document.getElementById('year').textContent = new Date().getFullYear();
+      form?.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        if (!form.checkValidity()){
+          e.stopPropagation();
+          form.classList.add('was-validated');
+          out.textContent = '';
+          return;
+        }
+        form.classList.remove('was-validated');
+        out.textContent = (I18N[htmlEl.lang]?.subscribed || I18N.en.subscribed);
+        form.reset();
+      }, false);
+    })();
   </script>
 </body>
 </html>
